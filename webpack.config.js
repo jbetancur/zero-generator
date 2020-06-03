@@ -119,7 +119,7 @@ module.exports = {
       disable: !isProduction,
     }),
     new HtmlWebpackPlugin({
-      template: 'public/index.html',
+      template: '../public/index.html',
       minify: {
         minifyJS: true,
         minifyCSS: true,

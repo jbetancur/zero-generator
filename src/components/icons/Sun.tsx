@@ -1,6 +1,9 @@
 import * as React from 'react';
 
-const SvgSun: React.FC<never> = (props) => {
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
+interface Props {}
+
+const SvgSun: React.FC<Props> = (props) => {
   return (
     <svg height="511.99986pt" viewBox="0 0 511.99986 511.99986" width="511.99986pt" {...props}>
       <path

@@ -2,3 +2,4 @@ node_modules/
 build
 test/fixtures
 test/tests
+public

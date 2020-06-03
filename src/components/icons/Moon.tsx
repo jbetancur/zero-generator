@@ -1,6 +1,9 @@
 import * as React from 'react';
 
-const SvgMoon: React.FC<never> = (props) => {
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
+interface Props {}
+
+const SvgMoon: React.FC<Props> = (props) => {
   return (
     <svg viewBox="0 0 64 64" width="512" height="512" {...props}>
       <g data-name="Filled outline">
