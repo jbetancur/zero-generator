@@ -25,10 +25,6 @@
       "dom"
     ],
     "baseUrl": "src",
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
   },
-  "exclude": [
-    "build",
-    "node_modules"
-  ]
 }

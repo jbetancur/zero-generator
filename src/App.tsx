@@ -1,35 +1,35 @@
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
-import { GlobalStyle } from './global';
+import { GlobalStyle } from './globalStyle';
 import { lightTheme, darkTheme } from './themes';
 import ToggleTheme from './components/ToggleTheme';
 import { useDarkMode } from './hooks/useDarkMode';
+import Header from './components/Header';
 
 const App: React.FC = () => {
-  const { theme, toggleTheme, componentMounted } = useDarkMode();
+	const { theme, toggleTheme, componentMounted } = useDarkMode();
 
-  const themeMode = theme === 'light' ? lightTheme : darkTheme;
+	const themeMode = theme === 'light' ? lightTheme : darkTheme;
 
-  if (!componentMounted) {
-    return <div />;
-  }
+	if (!componentMounted) {
+		return <div />;
+	}
 
-  return (
-    <ThemeProvider theme={themeMode}>
-      <GlobalStyle />
-      <ToggleTheme theme={theme} toggleTheme={toggleTheme} />
-      <div className="App">
-        <header className="App-header">
-          <p>
-            Edit <code>src/App.tsx</code> and save to reload.
-          </p>
-          <a className="App-link" href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
-            Learn React
-          </a>
-        </header>
-      </div>
-    </ThemeProvider>
-  );
+	return (
+		<ThemeProvider theme={themeMode}>
+			<GlobalStyle />
+			<main>
+				{/* Header is sample component */}
+				<Header>
+					<h2>React Boilerplate</h2>
+					<ToggleTheme theme={theme} toggleTheme={toggleTheme} />
+				</Header>
+				<p>
+					Start editing <code>src/App.tsx</code> and save to reload.
+				</p>
+			</main>
+		</ThemeProvider>
+	);
 };
 
 export default App;
