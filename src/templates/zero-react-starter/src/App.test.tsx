@@ -28,6 +28,14 @@ test('should toggle the light theme when clicked from dark theme', () => {
 	expect(container.firstChild).toMatchSnapshot();
 });
 
+test('should render the about page when the about link is clicked', () => {
+	const { container, getByText } = render(<App />);
+
+	fireEvent.click(getByText('About'));
+
+	expect(container.firstChild).toMatchSnapshot();
+});
+
 test('should render correctly with the default theme of the media does not match', () => {
 	window.matchMedia = jest.fn().mockImplementation(query => {
 		return {

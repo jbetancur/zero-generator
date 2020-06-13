@@ -1,8 +1,11 @@
 {
   "name": "zero-generator",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "zero-generator is nothing fancy. Just a stupidly simple cli for generating code projects",
-  "main": "dist/index.js",
+	"main": "dist/index.js",
+	"engines": {
+    "node": ">=0.12.0"
+  },
   "scripts": {
     "prepublishOnly": "npm run build",
     "start": "ts-node src/index.ts",
@@ -28,7 +31,7 @@
     "jest"
   ],
   "author": "John Betancur",
-  "license": "MIT",
+  "license": "Apache-2.0",
   "bugs": {
     "url": "https://github.com/jbetancur/zero-generator/issues"
   },

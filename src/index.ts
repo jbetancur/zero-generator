@@ -8,6 +8,14 @@ import * as template from './utils/template';
 import chalk from 'chalk';
 import * as yargs from 'yargs';
 
+const banner = `
+███████╗███████╗██████╗  ██████╗
+╚══███╔╝██╔════╝██╔══██╗██╔═══██╗
+  ███╔╝ █████╗  ██████╔╝██║   ██║
+ ███╔╝  ██╔══╝  ██╔══██╗██║   ██║
+███████╗███████╗██║  ██║╚██████╔╝
+`;
+
 const projectNameRegex = /^([A-Za-z\-\_\d])+$/;
 const semverRegex = /(?<=^v?|\sv?)(?:0|[1-9]\d*)\.(?:0|[1-9]\d*)\.(?:0|[1-9]\d*)(?:-(?:0|[1-9]\d*|[\da-z-]*[a-z-][\da-z-]*)(?:\.(?:0|[1-9]\d*|[\da-z-]*[a-z-][\da-z-]*))*)?(?:\+[\da-z-]+(?:\.[\da-z-]+)*)?(?=$|\s)/gi;
 const CURR_DIR = process.cwd();
@@ -17,7 +25,7 @@ const QUESTIONS = [
 	{
 		name: 'template',
 		type: 'list',
-		message: 'What react boilerplate would you like to generate?',
+		message: 'Which starter would you like to generate?',
 		choices: CHOICES,
 		when: () => !yargs.argv['template'],
 	},
@@ -73,17 +81,11 @@ export interface CliOptions {
 	config: TemplateConfig;
 }
 
-inquirer
-	.prompt(QUESTIONS)
-	.then(
-		(answers: {
-			template: string;
-			name: string;
-			version: string;
-			author: string;
-			license: string;
-		}) => {
-			answers = Object.assign({}, answers, yargs.argv);
+function start() {
+	inquirer
+		.prompt(QUESTIONS)
+		.then((answers: { template: string; name: string; version: string; author: string; license: string }) => {
+			answers = { ...answers, ...yargs.argv };
 
 			const projectChoice = answers['template'];
 			const projectName = answers['name'];
@@ -116,15 +118,19 @@ inquirer
 			}
 
 			showMessage(options);
-		},
-	)
-	.catch(error => {
-		if (error.isTtyError) {
-			console.log(chalk.red(error));
-		} else {
-			console.log(chalk.red("I've got a beed feeling about this..."));
-		}
-	});
+		})
+		.catch(error => {
+			if (error.isTtyError) {
+				console.log(chalk.red(error));
+			} else {
+				console.log(chalk.red("I've got a bad feeling about this..."));
+			}
+		});
+}
+
+function bruceBanner() {
+	console.log(chalk.greenBright(banner));
+}
 
 function showMessage(options: CliOptions) {
 	console.log('');
@@ -201,11 +207,7 @@ function postProcessNode(options: CliOptions) {
 	return true;
 }
 
-function createDirectoryContents(
-	templatePath: string,
-	projectName: string,
-	options: CliOptions,
-) {
+function createDirectoryContents(templatePath: string, projectName: string, options: CliOptions) {
 	const filesToCreate = fs.readdirSync(templatePath);
 
 	filesToCreate.forEach(file => {
@@ -232,11 +234,11 @@ function createDirectoryContents(
 			fs.mkdirSync(path.join(CURR_DIR, projectName, file));
 
 			// recursive call
-			createDirectoryContents(
-				path.join(templatePath, file),
-				path.join(projectName, file),
-				options,
-			);
+			createDirectoryContents(path.join(templatePath, file), path.join(projectName, file), options);
 		}
 	});
 }
+
+
+bruceBanner();
+start();

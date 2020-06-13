@@ -1,10 +1,13 @@
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
 import { GlobalStyle } from './globalStyle';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import { lightTheme, darkTheme } from './themes';
 import ToggleTheme from './components/ToggleTheme';
 import { useDarkMode } from './hooks/useDarkMode';
 import Header from './components/Header';
+import Home from './views/Home';
+import About from './views/About';
 
 const App: React.FC = () => {
 	const { theme, toggleTheme, componentMounted } = useDarkMode();
@@ -18,16 +21,23 @@ const App: React.FC = () => {
 	return (
 		<ThemeProvider theme={themeMode}>
 			<GlobalStyle />
-			<main>
-				{/* Header is sample component */}
-				<Header>
-					<h2>React Boilerplate</h2>
-					<ToggleTheme theme={theme} toggleTheme={toggleTheme} />
-				</Header>
-				<p>
-					Start editing <code>src/App.tsx</code> and save to reload.
-				</p>
-			</main>
+			<Router>
+				<main>
+					<Header title="React Boilerplate">
+						<Link to="/">Home</Link>
+						<Link to="/about">About</Link>
+						<ToggleTheme theme={theme} toggleTheme={toggleTheme} />
+					</Header>
+					<Switch>
+						<Route exact path="/">
+							<Home />
+						</Route>
+						<Route exact path="/about">
+							<About />
+						</Route>
+					</Switch>
+				</main>
+			</Router>
 		</ThemeProvider>
 	);
 };

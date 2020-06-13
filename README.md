@@ -1,13 +1,17 @@
-## zero-generator
+# zero-generator
 
 Zero is nothing fancy. Just a stupidly simple cli for bootstrapping code projects. Yea, that's right, another code generator cli. Why? Many software projects later this is our **opinionated** approach to what a zero configuration starting point should be. Use zero-generators' templates if you think they fit your use case well.
 
 As of now only a react starter is available but we plan to add more for other runtimes such as:
 
 - Nodejs
-- Deno 
+- Deno
 - Golang
 - Variations of React
+
+## Prerequisites
+
+- Node 12+
 
 ## Install
 
@@ -25,9 +29,8 @@ npm install zero-generator -g
 zero
 ```
 
-### One-liner
+### One liner
 
 ```sh
-zero --template <tempalte> --name my-sweet-project
+zero --template <template> --name my-sweet-project --version 1.0.0 --author Tom Bambadil --license MIT
 ```
-
