@@ -1,16 +1,28 @@
 import 'jest-styled-components';
 import React from 'react';
+import { Router } from 'react-router-dom';
 import { render, fireEvent } from '@testing-library/react';
+import { createMemoryHistory } from 'history';
 import App from './App';
 
+const history = createMemoryHistory();
+
 test('should render correctly with the default theme', () => {
-	const { container } = render(<App />);
+	const { container } = render(
+		<Router history={history}>
+			<App />
+		</Router>,
+	);
 
 	expect(container.firstChild).toMatchSnapshot();
 });
 
 test('should toggle the dark theme when clicked', () => {
-	const { container, getByTitle } = render(<App />);
+	const { container, getByTitle } = render(
+		<Router history={history}>
+			<App />
+		</Router>,
+	);
 
 	fireEvent.click(getByTitle('Toggle light/dark theme'));
 
@@ -18,7 +30,11 @@ test('should toggle the dark theme when clicked', () => {
 });
 
 test('should toggle the light theme when clicked from dark theme', () => {
-	const { container, getByTitle } = render(<App />);
+	const { container, getByTitle } = render(
+		<Router history={history}>
+			<App />
+		</Router>,
+	);
 
 	// join the darkside
 	fireEvent.click(getByTitle('Toggle light/dark theme'));
@@ -29,11 +45,27 @@ test('should toggle the light theme when clicked from dark theme', () => {
 });
 
 test('should render the about page when the about link is clicked', () => {
-	const { container, getByText } = render(<App />);
+	const { container, getByText } = render(
+		<Router history={history}>
+			<App />
+		</Router>,
+	);
 
 	fireEvent.click(getByText('About'));
 
 	expect(container.firstChild).toMatchSnapshot();
+});
+
+test('should render the 404 page if a route does not exist', () => {
+	history.push('/oops');
+
+	const { getByRole } = render(
+		<Router history={history}>
+			<App />
+		</Router>,
+	);
+
+	expect(getByRole('heading').textContent).toBe('Page Not Found');
 });
 
 test('should render correctly with the default theme of the media does not match', () => {
@@ -44,7 +76,11 @@ test('should render correctly with the default theme of the media does not match
 		};
 	});
 
-	const { container } = render(<App />);
+	const { container } = render(
+		<Router history={history}>
+			<App />
+		</Router>,
+	);
 
 	expect(container.firstChild).toMatchSnapshot();
 });
@@ -57,7 +93,11 @@ test('should render correctly with the default theme of the media matches', () =
 		};
 	});
 
-	const { container } = render(<App />);
+	const { container } = render(
+		<Router history={history}>
+			<App />
+		</Router>,
+	);
 
 	expect(container.firstChild).toMatchSnapshot();
 });

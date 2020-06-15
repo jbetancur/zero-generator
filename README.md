@@ -32,5 +32,5 @@ zero
 ### One liner
 
 ```sh
-zero --template <template> --name my-sweet-project --version 1.0.0 --author Tom Bambadil --license MIT
+zero --template <template> --name my-sweet-project --version 1.0.0 --author Tom Bombadil --license MIT
 ```
