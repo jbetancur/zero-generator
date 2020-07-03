@@ -2,25 +2,28 @@
 import 'styled-components';
 
 interface IPalette {
-	lighter: string;
+	light: string;
 	main: string;
-	darker: string;
+	dark: string;
 	contrastText: string;
 }
 
 // and extend them!
 declare module 'styled-components' {
 	export interface DefaultTheme {
-		fonts: {
-			body: string;
+		typography: {
+			fontFamily: string;
 		};
 		background: {
 			default: string;
 			paper: string;
 		};
 		palette: {
-			white: string;
-			black: string;
+			type: string;
+			common: {
+				white: string;
+				black: string;
+			},
 			primary: IPalette;
 			secondary: IPalette;
 			error: IPalette;
@@ -32,6 +35,7 @@ declare module 'styled-components' {
 			primary: string;
 			secondary: string;
 			disabled: string;
+			hint: string;
 		};
 		action: {
 			disabled: string;

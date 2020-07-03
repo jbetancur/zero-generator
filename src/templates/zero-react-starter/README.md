@@ -23,6 +23,7 @@ This starter works best when you have the following extensions installed:
 - ESlint
 - Prettier Code Formatter
 - stylelint
+- EditorConfig for VS Code
 
 ## Getting Started
 

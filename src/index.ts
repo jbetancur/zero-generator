@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 
+import * as pkg from '../package.json';
 import * as inquirer from 'inquirer';
 import * as fs from 'fs';
 import * as path from 'path';
@@ -129,7 +130,8 @@ function start() {
 }
 
 function bruceBanner() {
-	console.log(chalk.greenBright(banner));
+	console.log(chalk.green(banner));
+	console.log(chalk.blue(`v${pkg.version}`));
 }
 
 function showMessage(options: CliOptions) {

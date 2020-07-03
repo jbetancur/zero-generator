@@ -11,7 +11,7 @@ export const GlobalStyle = createGlobalStyle`
     height: 100vh;
     margin: 0;
     padding: 0;
-    font-family: ${({ theme }): string => theme.fonts.body},
+    font-family: ${({ theme }): string => theme.typography.fontFamily},
       'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
       sans-serif;
     -webkit-font-smoothing: antialiased;
