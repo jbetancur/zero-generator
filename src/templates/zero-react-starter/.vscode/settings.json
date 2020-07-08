@@ -15,5 +15,6 @@
 		"editor.defaultFormatter": "vscode.json-language-features"
 	},
 	"prettier.useTabs": true,
-	"editor.tabSize": 2
+	"editor.tabSize": 2,
+	"files.eol": "\n"
 }
