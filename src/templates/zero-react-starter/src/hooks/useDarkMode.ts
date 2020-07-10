@@ -1,8 +1,9 @@
 // Credit: https://css-tricks.com/a-dark-mode-toggle-with-react-and-themeprovider/
 import { useEffect, useState } from 'react';
+import { PaletteTypes } from '../styled';
 
 interface IDarkmode {
-	theme: string;
+	theme: PaletteTypes;
 	toggleTheme(): void;
 	componentMounted: boolean;
 }
@@ -10,10 +11,10 @@ interface IDarkmode {
 type Hook = () => IDarkmode;
 
 export const useDarkMode: Hook = () => {
-	const [theme, setTheme] = useState<string>('light');
+	const [theme, setTheme] = useState<PaletteTypes>('light');
 	const [componentMounted, setComponentMounted] = useState<boolean>(false);
-	const setMode = (mode: string) => {
-		window.localStorage.setItem('theme', mode);
+	const setMode = (mode: PaletteTypes) => {
+		window.localStorage.setItem('theme', String(mode));
 		setTheme(mode);
 	};
 
@@ -28,10 +29,12 @@ export const useDarkMode: Hook = () => {
 	useEffect(() => {
 		const localTheme = window.localStorage.getItem('theme');
 
-		window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches && !localTheme
+		window.matchMedia &&
+		window.matchMedia('(prefers-color-scheme: dark)').matches &&
+		!localTheme
 			? setMode('dark')
 			: localTheme
-			? setTheme(localTheme)
+			? setTheme(<PaletteTypes>localTheme)
 			: setMode('light');
 		setComponentMounted(true);
 	}, []);

@@ -1,49 +1,61 @@
 // import original module declarations
 import 'styled-components';
 
-interface IPalette {
+export interface PaletteColors {
 	light: string;
 	main: string;
 	dark: string;
 	contrastText: string;
 }
 
-// and extend them!
+export type PaletteTypes = 'light' | 'dark' | undefined;
+
+export interface PaletteOptions {
+	type: PaletteTypes;
+	common: {
+		white: string;
+		black: string;
+	};
+	primary: PaletteColors;
+	secondary: PaletteColors;
+	error: PaletteColors;
+	warning: PaletteColors;
+	info: PaletteColors;
+	success: PaletteColors;
+}
+
+export interface Text {
+	primary: string;
+	secondary: string;
+	disabled: string;
+	hint: string;
+}
+
+export interface Action {
+	disabled: string;
+	active: string;
+	selected: string;
+	hover: string;
+	disabledBackground: string;
+}
+
+export interface Background {
+	default: string;
+	paper: string;
+}
+
+export interface Typography {
+	fontFamily: string;
+}
+
+// allow types to work with styled
 declare module 'styled-components' {
 	export interface DefaultTheme {
-		typography: {
-			fontFamily: string;
-		};
-		background: {
-			default: string;
-			paper: string;
-		};
-		palette: {
-			type: string;
-			common: {
-				white: string;
-				black: string;
-			},
-			primary: IPalette;
-			secondary: IPalette;
-			error: IPalette;
-			warning: IPalette;
-			info: IPalette;
-			success: IPalette;
-		};
-		text: {
-			primary: string;
-			secondary: string;
-			disabled: string;
-			hint: string;
-		};
-		action: {
-			disabled: string;
-			active: string;
-			selected: string;
-			hover: string;
-			disabledBackground: string;
-		};
+		typography: Typography;
+		background: Background;
+		palette: PaletteOptions;
+		text: Text;
+		action: Action;
 		divider: string;
 	}
 }
