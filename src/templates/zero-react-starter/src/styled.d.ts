@@ -10,7 +10,7 @@ export interface PaletteColors {
 
 export type PaletteTypes = 'light' | 'dark' | undefined;
 
-export interface PaletteOptions {
+export interface Palette {
 	type: PaletteTypes;
 	common: {
 		white: string;
@@ -22,6 +22,10 @@ export interface PaletteOptions {
 	warning: PaletteColors;
 	info: PaletteColors;
 	success: PaletteColors;
+	background: Background;
+	text: Text;
+	action: Action;
+	divider: string;
 }
 
 export interface Text {
@@ -45,17 +49,13 @@ export interface Background {
 }
 
 export interface Typography {
-	fontFamily: string;
+	fontFamily: string | undefined;
 }
 
 // allow types to work with styled
 declare module 'styled-components' {
 	export interface DefaultTheme {
 		typography: Typography;
-		background: Background;
-		palette: PaletteOptions;
-		text: Text;
-		action: Action;
-		divider: string;
+		palette: Palette;
 	}
 }

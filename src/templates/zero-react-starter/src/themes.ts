@@ -56,25 +56,25 @@ export const lightTheme: DefaultTheme = {
 	palette: {
 		type: 'light',
 		...baseTheme.palette,
+		background: {
+			default: '#FAFAFA',
+			paper: '#424242',
+		},
+		text: {
+			primary: 'rgba(0, 0, 0, 0.87)',
+			secondary: 'rgba(0, 0, 0, 0.54)',
+			disabled: 'rgba(0, 0, 0, 0.38)',
+			hint: 'rgba(255, 255, 255, 0.5)',
+		},
+		action: {
+			disabled: 'rgba(0, 0, 0, 0.26)',
+			active: 'rgba(0, 0, 0, 0.54)',
+			selected: 'rgba(0, 0, 0, 0.08)',
+			hover: 'rgba(0, 0, 0, 0.04)',
+			disabledBackground: 'rgba(0, 0, 0, 0.12)',
+		},
+		divider: 'rgba(0, 0, 0, 0.12)',
 	},
-	background: {
-		default: '#FAFAFA',
-		paper: '#424242',
-	},
-	text: {
-		primary: 'rgba(0, 0, 0, 0.87)',
-		secondary: 'rgba(0, 0, 0, 0.54)',
-		disabled: 'rgba(0, 0, 0, 0.38)',
-		hint: 'rgba(255, 255, 255, 0.5)',
-	},
-	action: {
-		disabled: 'rgba(0, 0, 0, 0.26)',
-		active: 'rgba(0, 0, 0, 0.54)',
-		selected: 'rgba(0, 0, 0, 0.08)',
-		hover: 'rgba(0, 0, 0, 0.04)',
-		disabledBackground: 'rgba(0, 0, 0, 0.12)',
-	},
-	divider: 'rgba(0, 0, 0, 0.12)',
 };
 
 export const darkTheme: DefaultTheme = {
@@ -82,23 +82,23 @@ export const darkTheme: DefaultTheme = {
 	palette: {
 		type: 'dark',
 		...baseTheme.palette,
+		background: {
+			default: '#303030',
+			paper: '#424242',
+		},
+		text: {
+			primary: '#fff',
+			secondary: 'rgba(255, 255, 255, 0.7)',
+			disabled: 'rgba(255, 255, 255, 0.5)',
+			hint: 'rgba(255, 255, 255, 0.5)',
+		},
+		action: {
+			disabled: 'rgba(255, 255, 255, 0.5)',
+			active: '#fff',
+			selected: 'rgba(255, 255, 255, 0.16)',
+			hover: 'rgba(255, 255, 255, 0.08)',
+			disabledBackground: 'rgba(255, 255, 255, 0.12)',
+		},
+		divider: 'rgba(255, 255, 255, 0.12)',
 	},
-	background: {
-		default: '#303030',
-		paper: '#424242',
-	},
-	text: {
-		primary: '#fff',
-		secondary: 'rgba(255, 255, 255, 0.7)',
-		disabled: 'rgba(255, 255, 255, 0.5)',
-		hint: 'rgba(255, 255, 255, 0.5)',
-	},
-	action: {
-		disabled: 'rgba(255, 255, 255, 0.5)',
-		active: '#fff',
-		selected: 'rgba(255, 255, 255, 0.16)',
-		hover: 'rgba(255, 255, 255, 0.08)',
-		disabledBackground: 'rgba(255, 255, 255, 0.12)',
-	},
-	divider: 'rgba(255, 255, 255, 0.12)',
 };

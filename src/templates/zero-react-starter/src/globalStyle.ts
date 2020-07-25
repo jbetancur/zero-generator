@@ -11,10 +11,10 @@ export const GlobalStyle = createGlobalStyle`
     height: 100vh;
     margin: 0;
     padding: 0;
-    font-family: ${({ theme }): string => theme.typography.fontFamily};
+    font-family: ${({ theme }) => theme.typography.fontFamily};
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-color: ${({ theme }): string => theme.background.default};
-    color: ${({ theme }): string => theme.text.primary};
+    background-color: ${({ theme }) => theme.palette.background.default};
+    color: ${({ theme }) => theme.palette.text.primary};
   }
 `;

@@ -3,8 +3,7 @@ const path = require('path');
 const package = require('./package.json');
 
 // variables
-const isProduction =
-	process.argv.indexOf('-p') >= 0 || process.env.NODE_ENV === 'production';
+const isProduction = process.argv.indexOf('-p') >= 0 || process.env.NODE_ENV === 'production';
 const sourcePath = path.join(__dirname, './src');
 const outPath = path.join(__dirname, './build');
 
@@ -21,9 +20,7 @@ module.exports = {
 	output: {
 		path: outPath,
 		filename: isProduction ? '[contenthash].js' : '[hash].js',
-		chunkFilename: isProduction
-			? '[name].[contenthash].js'
-			: '[name].[hash].js',
+		chunkFilename: isProduction ? '[name].[contenthash].js' : '[name].[hash].js',
 	},
 	target: 'web',
 	resolve: {
@@ -33,6 +30,9 @@ module.exports = {
 		mainFields: ['module', 'browser', 'main'],
 		alias: {
 			app: path.resolve(__dirname, 'src/'),
+			components: path.resolve(__dirname, 'src/components'),
+			hooks: path.resolve(__dirname, 'src/hooks'),
+			assets: path.resolve(__dirname, 'src/assets'),
 		},
 	},
 	module: {
@@ -59,9 +59,7 @@ module.exports = {
 							sourceMap: !isProduction,
 							importLoaders: 1,
 							modules: {
-								localIdentName: isProduction
-									? '[hash:base64:5]'
-									: '[local]__[hash:base64:5]',
+								localIdentName: isProduction ? '[hash:base64:5]' : '[local]__[hash:base64:5]',
 							},
 						},
 					},
@@ -106,9 +104,7 @@ module.exports = {
 				vendors: {
 					test: /[\\/]node_modules[\\/]/,
 					chunks: 'all',
-					filename: isProduction
-						? 'vendor.[contenthash].js'
-						: 'vendor.[hash].js',
+					filename: isProduction ? 'vendor.[contenthash].js' : 'vendor.[hash].js',
 					priority: -10,
 				},
 			},
@@ -138,9 +134,7 @@ module.exports = {
 			meta: {
 				title: package.name,
 				description: package.description,
-				keywords: Array.isArray(package.keywords)
-					? package.keywords.join(',')
-					: undefined,
+				keywords: Array.isArray(package.keywords) ? package.keywords.join(',') : undefined,
 			},
 		}),
 	],
