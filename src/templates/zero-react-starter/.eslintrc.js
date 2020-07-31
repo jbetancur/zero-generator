@@ -22,6 +22,7 @@ module.exports = {
 	rules: {
 		'react/prop-types': 'off',
 		'@typescript-eslint/no-unused-vars': ['error', { ignoreRestSiblings: true }],
+		'@typescript-eslint/ban-ts-comment': [{ 'ts-ignore': 'allow-with-description', minimumDescriptionLength: 10 }],
 		'prettier/prettier': [
 			'error',
 			{
