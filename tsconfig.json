@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    // "rootDir": "src",
+    // "rootDir": "src",''
     "outDir": "dist",
     "target": "es5",
     "lib": ["es2017", "es2015", "dom", "es6"],
@@ -16,7 +16,8 @@
     "suppressImplicitAnyIndexErrors": true,
     "noUnusedLocals": true,
     "esModuleInterop": true,
-    "resolveJsonModule": true,
+		"resolveJsonModule": true,
+		"declaration": true,
   },
   "exclude": [
     "node_modules",
