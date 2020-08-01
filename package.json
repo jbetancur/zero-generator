@@ -1,6 +1,6 @@
 {
   "name": "zero-generator",
-  "version": "0.7.8",
+  "version": "0.8.0",
   "description": "zero-generator is nothing fancy. Just a stupidly simple cli for generating code projects",
   "main": "dist/src/index.js",
   "engines": {
@@ -9,7 +9,7 @@
   "scripts": {
     "prepublishOnly": "npm run build",
     "start": "ts-node src/index.ts",
-    "build": "tsc && shx rm -rf dist/templates && shx cp -r src/templates dist"
+    "build": "tsc && shx rm -rf dist/src/templates && shx cp -r src/templates dist/src"
   },
   "bin": {
     "zero": "./dist/src/index.js"
