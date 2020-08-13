@@ -30,6 +30,7 @@ module.exports = {
 		mainFields: ['module', 'browser', 'main'],
 		alias: {
 			app: path.resolve(__dirname, 'src/'),
+			views: path.resolve(__dirname, 'src/views'),
 			components: path.resolve(__dirname, 'src/components'),
 			hooks: path.resolve(__dirname, 'src/hooks'),
 			assets: path.resolve(__dirname, 'src/assets'),

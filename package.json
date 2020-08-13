@@ -1,6 +1,6 @@
 {
   "name": "zero-generator",
-  "version": "0.8.0",
+  "version": "0.9.0",
   "description": "zero-generator is nothing fancy. Just a stupidly simple cli for generating code projects",
   "main": "dist/src/index.js",
   "engines": {

@@ -3,12 +3,12 @@ import { ThemeProvider } from 'styled-components';
 import { GlobalStyle } from './globalStyle';
 import { Switch, Route, Link } from 'react-router-dom';
 import { lightTheme, darkTheme } from './themes';
-import ToggleTheme from './components/ToggleTheme';
-import { useDarkMode } from './hooks/useDarkMode';
-import Header from './components/Header';
-import Home from './views/Home';
-import About from './views/About';
-import NotFound from './components/NotFound';
+import ToggleTheme from 'components/ToggleTheme';
+import { useDarkMode } from 'hooks/useDarkMode';
+import Header from 'components/Header';
+import Home from 'views/Home';
+import About from 'views/About';
+import NotFound from 'components/NotFound';
 
 const App: React.FC = () => {
 	const { theme, toggleTheme, componentMounted } = useDarkMode();
