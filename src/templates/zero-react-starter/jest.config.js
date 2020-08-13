@@ -32,4 +32,11 @@ module.exports = {
 	],
 	testPathIgnorePatterns: ['/node_modules/'],
 	moduleFileExtensions: ['js', 'json', 'jsx', 'ts', 'tsx', 'node'],
+	moduleNameMapper: {
+		'^components(.*)$': '<rootDir>/src/components$1',
+		'^hooks(.*)$': '<rootDir>/src/hooks$1',
+		'^assets(.*)$': '<rootDir>/src/assets$1',
+		'^lib(.*)$': '<rootDir>/src/lib$1',
+		'^app(.*)$': '<rootDir>/src$1',
+	},
 };
